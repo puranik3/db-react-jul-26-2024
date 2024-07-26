@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Including styles</title>
+
+        <!-- EXERCISE: Change the order of external and embedded CSS and see the effect -->
+
+        <!-- external CSS (separate CSS file which is included in the page) -->
+        <link rel="stylesheet" href="css/01-external.css" />
+
+        <!-- embedded CSS (CSS along with HTML page - usually in the head - style tag) -->
+        <style>
+            .content-block {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- inline CSS (CSS along with HTML element - style attribute)-->
+        <div class="para" style="color: crimson">
+            <h2>External CSS has more priority.</h2>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
+            exercitationem natus dolores impedit quaerat culpa consectetur.
+            Reprehenderit dolorum, magni esse officia placeat commodi harum
+            optio tempora culpa nemo necessitatibus dolore?
+        </div>
+        <div class="content-block">
+            <h2>
+                External and embedded styles have same priority. Order of
+                include decides the winner.
+            </h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel
+            animi eum ea. Quos molestias quis error atque laborum quisquam
+            suscipit modi sunt repellat aut tempora, dolore vel, voluptatem
+            voluptate?
+        </div>
+        <div class="content-block">
+            <h2>
+                External and embedded styles have same priority. Order of
+                include decides the winner.
+            </h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+            possimus ipsa totam deleniti sunt quae perferendis id earum aut
+            deserunt fugit delectus aliquam harum voluptatibus labore numquam
+            inventore corrupti veniam!
+        </div>
+    </body>
+</html>

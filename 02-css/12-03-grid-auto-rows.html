@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Grid</title>
+        <style>
+            /* EXERCISE 1: Note and understand the use of grid-auto-columns (for grid-auto-flow: column;) / grid-auto-rows (for grid-auto-flow: row;) */
+            /* EXERCISE 2: Try grid-template-columns: 1fr 1fr; */
+            /* EXERCISE 3: Try grid-template-columns: repeat(2, 1fr); */
+            /* EXERCISE 4: Try grid-template-columns: 1fr 2fr; */
+            /* EXERCISE 5: Try grid-template-columns: 10% 30% 10% 30% 10% 30%; */
+            /* EXERCISE 6: Try grid-template-columns: repeat(3, 10% 30%); */
+            .container {
+                display: grid;
+                gap: 20px 10px;
+                grid-auto-flow: column;
+                grid-template-rows: 50px 100px; /* height for 2 rows */
+                grid-template-columns: 10% 30%; /* width for 2 columns */
+
+                grid-auto-columns: 100px;
+
+                height: calc(100vh - 32px - 20px - 2px);
+                padding: 10px;
+                border: 1px solid crimson;
+            }
+
+            .item {
+                background-color: gold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+
+            <!-- These are the -->
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+        </div>
+    </body>
+</html>

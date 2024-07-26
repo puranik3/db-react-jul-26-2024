@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Box model</title>
+        <style>
+            /* EXERCISE: Comment each property and see the difference it makes */
+            div {
+                font-size: 24px;
+                width: 50%;
+                min-width: 300px; /* do not let the width drop below 300px */
+                max-width: 500px; /* do not let the width go beyond 500px */
+                height: 300px; /* defaults to "auto" and parent gets height as per content within - if height is not sufficient content will "overflow" */
+                /* min-height, max-height */
+
+                /* padding: 10px 40px; */
+                /* 1em padding = 1 x font-size of this element */
+                /* 1% padding = 0.01 x parent element content width */
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                box-shadow: 5px -5px 2px 2px gold;
+
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            perspiciatis earum ipsam cupiditate! Ipsam maxime repellat
+            perspiciatis incidunt amet voluptatum adipisci repudiandae quo
+            ullam? Cumque saepe voluptatem aut quos iusto!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            voluptate quo doloremque dolores ipsam perspiciatis totam? Neque eos
+            corporis animi et, iste dolor. Dicta, maiores. Tempora neque quidem
+            ipsa rerum!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aliquam
+            eveniet harum. Assumenda, quidem ad. Deleniti, nulla, quo natus
+            ipsa, quam unde delectus quos animi officiis cumque adipisci
+            corporis necessitatibus.
+        </div>
+    </body>
+</html>

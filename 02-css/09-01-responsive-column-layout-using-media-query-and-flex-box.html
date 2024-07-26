@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Responsive column layout (mobile-first approach) - Flex box, Media
+            queries
+        </title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 1em;
+            }
+
+            /* "mobile first" approach - mobile styles go in first (best practice as mobile browser users are a majority) */
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .col {
+                /* flex: flex-grow flex-shrink flex-basis; */
+                flex: 0 0 100%;
+
+                padding: 2em;
+                background-color: lightgoldenrodyellow;
+            }
+
+            /* desktop styles go in next */
+            @media only screen and (min-width: 992px) {
+                .col {
+                    flex: 1 0 30%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus labore obcaecati sapiente, veritatis, ipsam
+                maiores vitae perspiciatis debitis expedita facilis aliquid
+                porro incidunt ipsum accusantium doloribus aliquam? Ut, enim
+                repellendus? Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Libero voluptatem nobis odio aliquid aperiam officiis
+                eaque amet. Doloribus rem dicta odit distinctio, nihil
+                perspiciatis unde quasi repudiandae adipisci libero magni?
+            </div>
+            <div class="col">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem
+                repellat cupiditate dolore rerum dolorum voluptatem corporis
+                reprehenderit pariatur, maxime ut iusto eos natus nam laboriosam
+                fugit qui fuga, quae iure?
+            </div>
+            <div class="col">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Delectus illo facere nihil placeat eligendi natus sunt deserunt
+                sit ipsa adipisci. Dolores quos ipsam possimus earum, omnis
+                veniam eaque culpa consequuntur.
+            </div>
+
+            <div class="col">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus labore obcaecati sapiente, veritatis, ipsam
+                maiores vitae perspiciatis debitis expedita facilis aliquid
+                porro incidunt ipsum accusantium doloribus aliquam? Ut, enim
+                repellendus? Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Libero voluptatem nobis odio aliquid aperiam officiis
+                eaque amet. Doloribus rem dicta odit distinctio, nihil
+                perspiciatis unde quasi repudiandae adipisci libero magni?
+            </div>
+            <div class="col">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem
+                repellat cupiditate dolore rerum dolorum voluptatem corporis
+                reprehenderit pariatur, maxime ut iusto eos natus nam laboriosam
+                fugit qui fuga, quae iure?
+            </div>
+            <div class="col">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Delectus illo facere nihil placeat eligendi natus sunt deserunt
+                sit ipsa adipisci. Dolores quos ipsam possimus earum, omnis
+                veniam eaque culpa consequuntur.
+            </div>
+        </div>
+    </body>
+</html>

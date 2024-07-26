@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Specificity</title>
+        <style>
+            /* EXERCISE: Uncomment one-by-one and from the LAST rule, and check (keep the rules above the one you uncomment, commented) */
+
+            /* Last style wins in case of conflict (assuming selectors specifities are same) */
+
+            /* .class / [attribute] selector is "more specific" than type selector */
+            /* #id selector is "more specific" than .class / [attribute] selector */
+
+            /* specificity: (0/1, num_ids, num_classes, num_types) */
+
+            /* specificity: (0, 1, 0, 2) */
+            /* section > div > #p1 {
+                color: lightgrey;
+            } */
+
+            /* specificity: (0, 1, 0, 1) */
+            /* section #p1 {
+                color: pink;
+            } */
+
+            /* specificity: (0, 0, 1, 1) - #p1 wins */
+            /* section .para {
+                color: gold;
+            } */
+
+            /* specificity: (0, 1, 0, 0) - #p1 wins */
+            /* #p1 {
+                color: olive;
+            } */
+
+            /* specificity: (0, 0, 1, 0) - .para wins */
+            /* .para {
+                color: purple;
+            } */
+
+            /* specificity: (0, 0, 0, 1) - last one wins in case of tie */
+            /* p {
+                color: green;
+            } */
+
+            /* specificity: (0, 0, 0, 1) */
+            /* p {
+                color: blue;
+            } */
+        </style>
+    </head>
+    <body>
+        <section id="main">
+            <div>
+                <!-- inline styles have highest specificity (always wins) -->
+                <!-- <p id="p1" class="para" style="color: crimson;"> -->
+                <!-- Specificity of inline style: (1, 0, 0, 0) -->
+                <p id="p1" class="para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+                    nam ut, laborum minus similique ea dolor. Ex, tempora id
+                    iusto at eos magnam odit doloremque nihil illo explicabo
+                    praesentium amet.
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Error nihil quos consequuntur sint consectetur ratione
+                    corporis nulla atque veritatis asperiores ducimus assumenda
+                    vel aliquam eaque eum dolores, nostrum quas quisquam.
+                </p>
+            </div>
+        </section>
+    </body>
+</html>

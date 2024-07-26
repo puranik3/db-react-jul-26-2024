@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Basic selectors</title>
+        <style>
+            /* id selector */
+            #p1 {
+                color: crimson;
+            }
+
+            /* class selector */
+            .p {
+                color: green;
+            }
+
+            /* element selector - not preferred */
+            p {
+                color: blue;
+            }
+
+            /* attribute selector */
+            p[title="Conclusion"] {
+                color: purple;
+            }
+
+            p[title^="Conclusion"] {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="p1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+        <p class="p" title="Introduction">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+        <p title="Conclusion">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+        <p title="Conclusion-sub">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+        <p title="Conclusion-sub">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            provident dolor iure voluptatum ipsam alias, sequi pariatur?
+            Sapiente velit explicabo maiores, molestias, corrupti quibusdam
+            recusandae debitis culpa, tempore soluta quidem?
+        </p>
+    </body>
+</html>

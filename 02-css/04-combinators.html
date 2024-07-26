@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Combinators</title>
+        <style>
+            h2 {
+                color: gold;
+            }
+
+            /* EXERCISE: Uncomment one-by-one and check (keep the rest commented) */
+
+            /* Parent - child - > */
+            /* section > h2 {
+                color: crimson;
+            } */
+
+            /* Ancestor - descendant - space */
+            /* section h2 {
+                color: crimson;
+            } */
+
+            /* no spaces - element satisfies all the selectors */
+            /* .x.y {
+                color: crimson;
+            } */
+
+            /* comma combinator - */
+            /* section > div > h2,
+            section > div > h3 {
+                color: crimson;
+            } */
+        </style>
+    </head>
+    <body>
+        <h2>Heading 1</h2>
+
+        <section>
+            <h2 class="x y">Heading within Section</h2>
+            <a href="#">Link within section</a>
+            <div>
+                <h2>Heading (h2) within division within section</h2>
+                <h3>Heading (h3) within division within section</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                omnis voluptatem commodi accusantium eos architecto, cum, modi
+                odio fugiat, deserunt ut sapiente! Dolorem quos ipsum labore
+                consequatur quisquam molestiae id!
+                <a href="#">Link within division</a>
+            </div>
+        </section>
+
+        <div>
+            <h2 class="x">Heading within division outside section</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis
+            voluptatem commodi accusantium eos architecto, cum, modi odio
+            fugiat, deserunt ut sapiente! Dolorem quos ipsum labore consequatur
+            quisquam molestiae id!
+            <a href="#">Link within division</a>
+        </div>
+    </body>
+</html>

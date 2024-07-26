@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fluid layout</title>
+        <style>
+            /* EXERCISE: Note and undertand the importance of specifying horizontal dimensions in relative units (%) */
+            * {
+                box-sizing: border-box;
+            }
+
+            nav,
+            footer {
+                height: 100px;
+                background-color: purple;
+            }
+
+            main {
+                display: flex;
+                height: 200px;
+            }
+
+            #sidebar {
+                flex: 0 0 20%;
+                background-color: gold;
+            }
+
+            #main-content {
+                flex: 1 0 auto;
+                background-color: olive;
+            }
+
+            .row {
+                display: flex;
+                height: 200px;
+            }
+
+            .col {
+                flex: 1 0 auto;
+            }
+
+            .col:nth-child(1) {
+                background-color: #444;
+            }
+
+            .col:nth-child(2) {
+                background-color: #999;
+            }
+
+            .col:nth-child(3) {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            Fluid layout - Make sure to use only relative units like % / relative value like auto for specifying widths, padding-left, padding-right (padding, border will be included in width specification if we use box-sizing: border-box), margin-left / margin-right  etc. This ensure the page is responsive.
+        -->
+        <nav></nav>
+        <main>
+            <aside id="sidebar">Sidebar</aside>
+            <section id="main-content">
+                <div class="row">
+                    <div class="col">Column 1</div>
+                    <div class="col">Column 2</div>
+                    <div class="col">Column 3</div>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+</html>
