@@ -15,40 +15,46 @@
 
             /* specificity: (0/1, num_ids, num_classes, num_types) */
 
-            /* specificity: (0, 1, 0, 2) */
-            /* section > div > #p1 {
+            
+            /* ( 0, 1, 0, 2 ) */
+            section > div > #p1 {
                 color: lightgrey;
-            } */
+            }
 
-            /* specificity: (0, 1, 0, 1) */
-            /* section #p1 {
+            /* ( 0, 1, 0, 1 ) */
+            section #p1 {
                 color: pink;
-            } */
+            }
 
-            /* specificity: (0, 0, 1, 1) - #p1 wins */
-            /* section .para {
+            /* ( 0, 0, 1, 1 ) */
+            section .para {
                 color: gold;
-            } */
+            }
 
-            /* specificity: (0, 1, 0, 0) - #p1 wins */
-            /* #p1 {
+            /* ( 0, 1, 0, 0 ) */
+            #p1 {
                 color: olive;
-            } */
+            }
 
-            /* specificity: (0, 0, 1, 0) - .para wins */
-            /* .para {
+            
+            /* ( 0, 0, 1, 0 ) */
+            .para {
                 color: purple;
-            } */
+            }
 
             /* specificity: (0, 0, 0, 1) - last one wins in case of tie */
-            /* p {
+            /* ( 0, 0, 0, 1 ) */
+            p {
                 color: green;
-            } */
+            }
 
             /* specificity: (0, 0, 0, 1) */
-            /* p {
+            /* ( a, b, c, d ) */
+            /* ( 0, #ids, .classes, elements ) */
+            /* ( 0, 0, 0, 1 ) */
+            p {
                 color: blue;
-            } */
+            }
         </style>
     </head>
     <body>
