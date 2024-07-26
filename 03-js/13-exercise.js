@@ -60,3 +60,12 @@ const persons = [
 //         email: 'mary@gmail.com' 
 //     }
 // ]
+
+const result = persons.map( item => {
+    return {
+        name: item.name,
+        email: item.emails[0]
+    };
+});
+
+console.log( result );
