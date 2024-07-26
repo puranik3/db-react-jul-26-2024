@@ -15,7 +15,7 @@ function sum1( x, y ) {
 // console.log( sum2( 12, 13 ) ); // error
 
 // function expression syntax
-// The RHS of the assignment (is an anonymous function)
+// The RHS of the assignment (is an anonymous function expression)
 // These functions are created just-in-time (just when this line of code executes)
 const sum2 = function( x, y ) {
     return x + y;
@@ -24,7 +24,7 @@ const sum2 = function( x, y ) {
 console.log( sum2( 12, 13 ) );
 
 
-// -- stntax3 
+// -- syntax 3 -- 
 // new syntax (ES2015) - arrow function
 const sum3 = ( x, y ) => {
     return x + y;
@@ -43,4 +43,3 @@ console.log( sum4( 12, 13 ) );
 const square = x => x * x;
 
 console.log( square( 12 ) );
-
