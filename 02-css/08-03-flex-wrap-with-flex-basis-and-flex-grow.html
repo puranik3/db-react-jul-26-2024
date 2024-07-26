@@ -24,19 +24,31 @@
             }
 
             .col {
-                /* flex-basis: 30%; */
+                flex-basis: 30%;
 
-                /* flex-grow: 0;
-                word-break: break-all; */
+                flex-grow: 1; /* take the extra space in equal amount */
+                word-break: break-all;
 
                 padding: 16px;
                 border: 1px solid black;
+            }
+
+            .col-1 {
+                flex-grow: 1; /* take the extra space in equal amount */
+            }
+
+            .col-2 {
+                flex-grow: 4;
+            }
+            
+            .col-3 {
+                flex-grow: 8;
             }
         </style>
     </head>
     <body>
         <div class="row">
-            <div class="col">
+            <div class="col col-1">
                 <h2>Column 1</h2>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Accusantium labore reprehenderit, consequatur perferendis neque
@@ -47,14 +59,14 @@
                 quas veniam officia laboriosam officiis provident repellendus,
                 ducimus nesciunt aut placeat?
             </div>
-            <div class="col">
+            <div class="col col-2">
                 <h2>Column 2</h2>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Accusantium labore reprehenderit, consequatur perferendis neque
                 quasi quas voluptas libero ea id natus repudiandae minima, iure
                 earum fugiat omnis rerum asperiores? Necessitatibus.
             </div>
-            <div class="col">
+            <div class="col col-3">
                 <h2>Column 3</h2>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Accusantium labore reprehenderit, consequatur perferendis neque
