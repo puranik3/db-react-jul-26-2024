@@ -9,5 +9,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Forms</title>
     </head>
-    <body></body>
+    <body>
+        <!-- HTTP methods -> get, post, put, patch, delete -->
+         <!-- with method `get` the data sent goes as query string parameters -->
+         <!-- with method `post` the data is sent in request body -->
+        <!-- <form action="04-success.html" method="get"> -->
+        <form action="04-success.html" method="post">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                value="johndoe"
+                id="username"
+                name="uname"
+                required
+            />
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="pwd"
+                required
+            />
+
+            <label>
+                <input
+                    type="checkbox"
+                    checked
+                    value="yes i agree"
+                    name="tnc"
+                />
+            </label>
+                
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        checked
+                        value="frontend"
+                        name="interest"
+                    />
+                    Frontend
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        checked
+                        value="backend"
+                        name="interest"
+                    />
+                    Backend
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        checked
+                        value="devops"
+                        name="interest"
+                    />
+                    Devops
+                </label>
+            </div>
+
+            <textarea name="message"></textarea>
+
+            <select name="place">
+                <option value="KTK">karnataka</option>
+                <option value="MH">Maharashtra</option>
+                <option>UP</option>
+                <option>Delhi</option>
+            </select>
+
+            <button>Submit</button>
+        </form>
+
+        <button>Normal button</button>
+        <input type="button" value="Normal button" />
+    </body>
 </html>
