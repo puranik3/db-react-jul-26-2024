@@ -3,6 +3,12 @@
 Deutsche Bank  
 July 26 - 30 2024
 
+## Exercises
+- Jul 26:
+    - 02 - CSS Lab Guide: More Exercises (last page) - Q. 4
+    - 03 - JS (ES5 and earlier) - Built in classes - Strings and Array - Q.4 - complete the rest of questions
+    - 04 - JS (ES2015+) - Q. 9
+
 ## Email IDs
 
 Please share your email id here so you can be part of the chat

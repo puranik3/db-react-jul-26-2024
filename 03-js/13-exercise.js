@@ -37,7 +37,7 @@ const persons = [
             'mary@gmail.com', 
             'mary@example.com' 
         ] 
-    } 
+    }
 ]; 
  
 // Get a list of users along with their first email id. The result should be an array like this. Do not modify the given array. 
