@@ -17,26 +17,28 @@
                 margin: 1em;
             }
 
-            /* "mobile first" approach - mobile styles go in first (best practice as mobile browser users are a majority) */
+            /* mobile first */
             .row {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 10px;
+
+                gap: 20px;
             }
 
-            .col {
-                /* flex: flex-grow flex-shrink flex-basis; */
-                flex: 0 0 100%;
-
-                padding: 2em;
-                background-color: lightgoldenrodyellow;
-            }
-
-            /* desktop styles go in next */
-            @media only screen and (min-width: 992px) {
+            /* screen width at which layout changes is a "breakpoint" */
+            @media only screen and ( min-width : 992px ) {
                 .col {
-                    flex: 1 0 30%;
+                    flex-basis: 30%;
+                    flex-grow: 1;
+                    flex-shrink: 0;
+                }
+            }
+
+            @media only screen and ( min-width : 1400px ) {
+                .col {
+                    flex-basis: 20%;
+                    flex-grow: 1;
+                    flex-shrink: 0;
                 }
             }
         </style>
