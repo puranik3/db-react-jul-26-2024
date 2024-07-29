@@ -9,7 +9,18 @@ const root = ReactDOM.createRoot( document.getElementById( 'root' ) as HTMLEleme
 
 // JSX - HTML-like syntax used to define the UI
 root.render(
-  <Application />
+  <>
+    {/* create multiple Application components */}
+    {/* we pass customized info through props */}
+    <Application
+      title="Workshops App"
+      subtitle="Welcome to Workshops App. You can find details of nearby workshops."
+    />
+    <Application
+      title="What is React?"
+      subtitle="It is a library to build frontend SPA"
+    />
+  </>
 )
 
 // root.render(
