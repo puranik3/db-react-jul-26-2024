@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { getWorkshops } from "../services/workshops";
 import type { IWorkshop } from "../services/workshops";
-import { Alert, Button, ListGroup, Spinner } from "react-bootstrap";
+import {
+    Alert,
+    Button,
+    ListGroup,
+    ListGroupItem,
+    Spinner,
+} from "react-bootstrap";
 
 const WorkshopsList = () => {
     // console.log(useState("hello")); // [ 'hello', setter_function ]
@@ -98,7 +104,7 @@ const WorkshopsList = () => {
                             <ListGroup>{(workshops[3] as any).name}</ListGroup>,
                         ]} */}
                         {workshops.map((w) => (
-                            <ListGroup key={w.id}>{w.name}</ListGroup>
+                            <ListGroupItem key={w.id}>{w.name}</ListGroupItem>
                         ))}
                     </ListGroup>
                 </>
