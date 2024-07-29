@@ -1,5 +1,23 @@
 # Workshops App
 
+- React is a JS library for building frontend app
+    - created by Facebook (Meta)
+    - Alternatives
+        - Angular, Vue, Solid, Svelte
+    - It makes it easy to create the app
+    - It makes it easy to think about the design of the app
+        - Components - A component is a reusable, customizable piece of the UI
+            - In HTML: <input type="password" placeholder="Password" />
+            - In React: <Tab icon="book" text="Wiki" />, <Tab icon="play" text="Actions" />
+    - With React you do not need to do DOM manipulation yourself - React does it for you.
+        - You tell what kind of UI you want
+            - You tell what you want to show - a list of employees, and you supply that data
+            - React will do the necessary DOM manipulations to show the list
+            - If the data changes, the UI updates automatically
+                - you fetch data from the backend and set it. React updates the UI.
+                    - cleaner and simpler code
+    - React apps are easy to manage than vanilla JS apps
+
 ## Step 1: Project setup
 
 Create the React app that shall be written in TypeScript
