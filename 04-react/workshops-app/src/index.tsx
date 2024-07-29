@@ -16,10 +16,12 @@ root.render(
       title="Workshops App"
       subtitle="Welcome to Workshops App. You can find details of nearby workshops."
     />
+    {/*
     <Application
       title="What is React?"
       subtitle="It is a library to build frontend SPA"
     />
+    */}
   </>
 )
 
