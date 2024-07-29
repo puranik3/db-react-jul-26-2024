@@ -5,6 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Application from './App';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) as HTMLElement );
 
 // JSX - HTML-like syntax used to define the UI
