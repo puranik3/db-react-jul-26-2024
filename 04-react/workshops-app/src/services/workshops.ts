@@ -19,8 +19,12 @@ interface IWorkshop {
     imageUrl: string;
 }
 
-const getWorkshops = async () => {
-    const response = await axios.get<IWorkshop[]>(`/workshops`);
+const getWorkshops = async (page: number) => {
+    const response = await axios.get<IWorkshop[]>(`/workshops`, {
+        params: {
+            _page: page,
+        },
+    });
     return response.data;
 };
 
