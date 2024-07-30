@@ -1,22 +1,22 @@
 # Workshops App
 
-- React is a JS library for building frontend app
-    - created by Facebook (Meta)
-    - Alternatives
-        - Angular, Vue, Solid, Svelte
-    - It makes it easy to create the app
-    - It makes it easy to think about the design of the app
-        - Components - A component is a reusable, customizable piece of the UI
-            - In HTML: <input type="password" placeholder="Password" />
-            - In React: <Tab icon="book" text="Wiki" />, <Tab icon="play" text="Actions" />
-    - With React you do not need to do DOM manipulation yourself - React does it for you.
-        - You tell what kind of UI you want
-            - You tell what you want to show - a list of employees, and you supply that data
-            - React will do the necessary DOM manipulations to show the list
-            - If the data changes, the UI updates automatically
-                - you fetch data from the backend and set it. React updates the UI.
-                    - cleaner and simpler code
-    - React apps are easy to manage than vanilla JS apps
+-   React is a JS library for building frontend app
+    -   created by Facebook (Meta)
+    -   Alternatives
+        -   Angular, Vue, Solid, Svelte
+    -   It makes it easy to create the app
+    -   It makes it easy to think about the design of the app
+        -   Components - A component is a reusable, customizable piece of the UI
+            -   In HTML: <input type="password" placeholder="Password" />
+            -   In React: <Tab icon="book" text="Wiki" />, <Tab icon="play" text="Actions" />
+    -   With React you do not need to do DOM manipulation yourself - React does it for you.
+        -   You tell what kind of UI you want
+            -   You tell what you want to show - a list of employees, and you supply that data
+            -   React will do the necessary DOM manipulations to show the list
+            -   If the data changes, the UI updates automatically
+                -   you fetch data from the backend and set it. React updates the UI.
+                    -   cleaner and simpler code
+    -   React apps are easy to manage than vanilla JS apps
 
 ## Step 1: Project setup
 
@@ -657,7 +657,7 @@ function toggleDescription() {
 
 ## Step 15: Set up Workshop details page and link to it
 
--   `src/components/WorkshopsList.tsx`
+-   `src/components/WorkshopsDetails.tsx`
 
 ```tsx
 const WorkshopDetails = () => {
@@ -1035,7 +1035,8 @@ function addSession(event: FormEvent) {
 ```
 
 ## Step 23: Extract user input from the form fields (controlled components pattern)
-- `src/components/AddSession.uncontrolled.tsx` - Take a copy of `src/components/AddSession.tsx` and rename it as `src/components/AddSession.uncontrolled.tsx`
+
+-   `src/components/AddSession.uncontrolled.tsx` - Take a copy of `src/components/AddSession.tsx` and rename it as `src/components/AddSession.uncontrolled.tsx`
 
 -   `src/components/AddSession.tsx`
 
@@ -1199,7 +1200,7 @@ const addSession = async (sessionData: Omit<ISession, "id">) => {
 export { addSession };
 ```
 
-- `src/components/AddSession.tsx`
+-   `src/components/AddSession.tsx`
 
 ```tsx
 import { addSession as addSessionSvc } from "../services/sessions";
@@ -1257,8 +1258,7 @@ async function addSession(event: FormEvent) {
 
 ```tsx
 <Form.Group className="mb-3" controlId="sequenceId">
-    <Form.Label>Sequence ID</Form.Label>{" "}
-    {/* for of label is htmlFor in JSX */}
+    <Form.Label>Sequence ID</Form.Label> {/* for of label is htmlFor in JSX */}
     <Form.Control
         type="text"
         placeholder="Sequence ID"
@@ -1266,10 +1266,7 @@ async function addSession(event: FormEvent) {
         onChange={(event) => setSequenceId(event.target.value)}
     />
     {
-        <div
-            className="text-danger"
-            style={{ fontSize: "12px" }}
-        >
+        <div className="text-danger" style={{ fontSize: "12px" }}>
             {sequenceIdError}
         </div>
     }
@@ -1278,12 +1275,13 @@ async function addSession(event: FormEvent) {
 
 ## Step 25: Adding theming using Redux store
 
-- Install the necessary libraries
+-   Install the necessary libraries
+
 ```
 npm i redux @reduxjs/toolkit react-redux
 ```
 
-- `src/slices/theme.ts`
+-   `src/slices/theme.ts`
 
 ```tsx
 import { createSlice } from "@reduxjs/toolkit";
@@ -1310,7 +1308,8 @@ export { toggleTheme };
 export default themeSlice;
 ```
 
-- `src/store.ts`
+-   `src/store.ts`
+
 ```tsx
 import { configureStore } from "@reduxjs/toolkit";
 import themeSlice from "./slices/theme";
@@ -1325,7 +1324,8 @@ const store = configureStore({
 export default store;
 ```
 
-- `src/index.tsx`
+-   `src/index.tsx`
+
 ```tsx
 import { Provider } from "react-redux";
 import store from "./store";
@@ -1343,7 +1343,8 @@ root.render(
 );
 ```
 
-- `src/components/Menu.tsx`
+-   `src/components/Menu.tsx`
+
 ```tsx
 import { useDispatch } from "react-redux";
 import { toggleTheme } from "../slices/theme";
@@ -1355,16 +1356,14 @@ const dispatch = useDispatch();
 
 ```tsx
 <Nav>
-    <Nav.Link
-        href="#"
-        onClick={() => dispatch(toggleTheme())}
-    >
+    <Nav.Link href="#" onClick={() => dispatch(toggleTheme())}>
         Change theme
     </Nav.Link>
 </Nav>
 ```
 
-- `src/components/Home.tsx`
+-   `src/components/Home.tsx`
+
 ```tsx
 import { useSelector } from "react-redux";
 
@@ -1397,7 +1396,8 @@ export default Home;
 
 ## Step 26: Unit testing
 
-- `package.json`
+-   `package.json`
+
 ```tsx
 "jest": {
     "transformIgnorePatterns": [
@@ -1406,7 +1406,8 @@ export default Home;
 }
 ```
 
-- `src/components/Home.test.tsx`
+-   `src/components/Home.test.tsx`
+
 ```tsx
 import Home from "./Home";
 import { render, screen } from "@testing-library/react";
@@ -1431,18 +1432,16 @@ describe("Home component", () => {
 });
 ```
 
-- `src/components/AddSession.tsx`
+-   `src/components/AddSession.tsx`
+
 ```tsx
-<Button
-    variant="primary"
-    type="submit"
-    data-testid="btn-submit"
->
+<Button variant="primary" type="submit" data-testid="btn-submit">
     Submit
 </Button>
 ```
 
-- `src/components/AddSession.test.tsx`
+-   `src/components/AddSession.test.tsx`
+
 ```tsx
 import AddSession from "./AddSession";
 import { fireEvent, render, screen } from "@testing-library/react";
