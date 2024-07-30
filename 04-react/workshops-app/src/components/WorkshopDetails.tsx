@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Alert, Spinner } from "react-bootstrap";
+import { Alert, Image, Spinner } from "react-bootstrap";
 
 import { getWorkshopById } from "../services/workshops";
 import type { IWorkshop } from "../services/workshops";
@@ -49,6 +49,30 @@ const WorkshopDetails = () => {
                 <>
                     <h1>{workshop.name}</h1>
                     <hr />
+                    <div className="row">
+                        <div className="col-12 col-md-4 mb-3">
+                            <Image
+                                src={workshop.imageUrl}
+                                alt={`The logo of ${workshop.name}`}
+                                fluid // defaults to true
+                            />
+                        </div>
+                        <div className="col-12 col-md-8">
+                            <div className="text-primary mb-4">
+                                {workshop.location.address},{" "}
+                                {workshop.location.city},{" "}
+                                {workshop.location.state}
+                            </div>
+
+                            {/* Is setting HTML content safe from XSS attack? */}
+                            {/*<div>{workshop.description}</div>*/}
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: workshop.description,
+                                }}
+                            ></div>
+                        </div>
+                    </div>
                 </>
             )}
         </div>
