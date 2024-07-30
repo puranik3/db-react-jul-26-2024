@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import HomePage from "./pages/HomePage";
 import WorkshopsListPage from "./pages/WorkshopsListPage";
+import WorkshopDetailsPage from "./pages/WorkshopDetailsPage";
 
 // component defined using a function
 // reusable, customizable piece of the UI
@@ -21,6 +22,10 @@ const App = (props: IAppProps) => {
                 <Routes>
                     <Route path="/" element={<HomePage {...props} />} />
                     <Route path="/workshops" element={<WorkshopsListPage />} />
+                    <Route
+                        path="/workshops/:workshopId"
+                        element={<WorkshopDetailsPage />}
+                    />
                 </Routes>
             </Container>
         </div>

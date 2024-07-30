@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { getWorkshops } from "../services/workshops";
-import type { IWorkshop } from "../services/workshops";
+import { Link } from "react-router-dom";
 import {
     Alert,
     Button,
@@ -8,6 +7,9 @@ import {
     ListGroupItem,
     Spinner,
 } from "react-bootstrap";
+
+import { getWorkshops } from "../services/workshops";
+import type { IWorkshop } from "../services/workshops";
 
 const WorkshopsList = () => {
     // console.log(useState("hello")); // [ 'hello', setter_function ]
@@ -104,7 +106,9 @@ const WorkshopsList = () => {
                             <ListGroup>{(workshops[3] as any).name}</ListGroup>,
                         ]} */}
                         {workshops.map((w) => (
-                            <ListGroupItem key={w.id}>{w.name}</ListGroupItem>
+                            <ListGroupItem key={w.id}>
+                                <Link to={`/workshops/${w.id}`}>{w.name}</Link>
+                            </ListGroupItem>
                         ))}
                     </ListGroup>
                 </>
