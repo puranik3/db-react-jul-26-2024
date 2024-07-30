@@ -1,5 +1,8 @@
 import { FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+import { postSession } from "../services/sessions";
 
 interface IProps {
     workshopId: number;
@@ -7,6 +10,7 @@ interface IProps {
 
 const AddSession = ({ workshopId }: IProps) => {
     // const { workshopId } = useParams();
+    const navigate = useNavigate();
 
     // you create a state for every input
     const [sequenceId, setSequenceId] = useState("10");
@@ -45,7 +49,7 @@ const AddSession = ({ workshopId }: IProps) => {
         return validateSequenceId();
     }
 
-    function addSession(event: FormEvent) {
+    async function addSession(event: FormEvent) {
         event.preventDefault(); // Hey browser! Don't do what you usually do - the browser tries to submit the form's detail to the "action" page
 
         const newSession = {
@@ -63,7 +67,12 @@ const AddSession = ({ workshopId }: IProps) => {
         console.log(newSession); // user's input
 
         if (validate()) {
-            alert("All good!");
+            // alert("All good!");
+            const addedSession = await postSession(newSession);
+            alert(
+                `Added a new session with name =${addedSession.name} and id=${addedSession.id}`
+            );
+            navigate(`/workshops/${workshopId}`);
         }
     }
 
