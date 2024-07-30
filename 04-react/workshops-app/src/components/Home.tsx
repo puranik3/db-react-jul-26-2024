@@ -1,8 +1,8 @@
 // sfc
 
 interface IProps {
-    title: string,
-    subtitle: string
+    title: string;
+    subtitle: string;
 }
 
 /*
@@ -17,7 +17,7 @@ const subttile = props.subtitle;
 const { title, subtitle } = props;
 */
 
-const Home = ( { title, subtitle } : IProps ) => {
+const Home = ({ title, subtitle }: IProps) => {
     return (
         <div>
             <h1>{title}</h1>
@@ -26,6 +26,6 @@ const Home = ( { title, subtitle } : IProps ) => {
             <p>{subtitle}</p>
         </div>
     );
-}
- 
+};
+
 export default Home;

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .panel {
+                border: 1px solid #333;
+                border-radius: 4px;
+            }
+
+            .panel-question,
+            .panel-answer {
+                padding: 12px;
+            }
+
+            .panel-question {
+                background-color: #333;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.25.2/babel.min.js"></script>
+
+        <script type="text/babel">
+            const PanelQuestion = React.memo(function ({ question, toggle }) {
+                console.log("PanelQuestion");
+
+                return (
+                    <div className="panel-question" onClick={toggle}>
+                        {question}
+                    </div>
+                );
+            });
+
+            function PanelAnswer({ children, show }) {
+                console.log("PanelAnswer");
+                // const [show, setShow] = useState(true);
+
+                return show ? (
+                    <div className="panel-answer">{children}</div>
+                ) : null;
+            }
+
+            function Panel({ question, children }) {
+                console.log("Panel");
+
+                const [show, setShow] = React.useState(true);
+
+                const toggle = React.useCallback(
+                    () => setShow((s) => !s),
+                    [setShow]
+                );
+
+                return (
+                    <div className="panel">
+                        {/* props that are functions are callback props */}
+                        <PanelQuestion question={question} toggle={toggle} />
+                        <PanelAnswer show={show}>{children}</PanelAnswer>
+                    </div>
+                );
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(
+                <Panel question="What is React?">
+                    <p>It is a frontend library</p>
+                    <p>It was created by Facebook</p>
+                </Panel>
+            );
+        </script>
+    </body>
+</html>

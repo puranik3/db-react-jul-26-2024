@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redux</title>
+    </head>
+    <body>
+        <div>
+            <button onclick="decrement()">-</button>
+            <span id="value">0</span>
+            <button onclick="increment()">+</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.js"></script>
+
+        <script>
+            // let x = 1; // pure function cannot use this
+
+            // The value the reducer returns is the new state
+            // The reducer should be a "pure function"
+            // Rules of pure function (functional programming)
+            // 1. It does not use / change any global state
+            // 2. It should return the same output for the same set of argument passed (it is predictable - does not use random values etc.)
+            // 3. It should not "mutate" it arguments
+            // "State tree is immutable"
+            function counterReducer(
+                state = { value: 0, x: 100, page: 2 },
+                action
+            ) {
+                // console.log("called");
+                // console.log(state, action);
+
+                switch (action.type) {
+                    case "counter/decrement":
+                        // state.value++; // mutates the state argument -> should NOT be done in reducer
+                        return {
+                            ...state,
+                            value: state.value - action.payload.changeBy,
+                        };
+                    case "counter/increment":
+                        return {
+                            ...state,
+                            value: state.value + action.payload.changeBy,
+                        };
+                    default:
+                        return state;
+                }
+            }
+
+            const store = Redux.createStore(counterReducer);
+
+            console.log(store.getState()); // { value: 0 }
+
+            function decrement() {
+                store.dispatch({
+                    type: "counter/decrement",
+                    payload: {
+                        changeBy: 2,
+                    },
+                });
+            }
+
+            function increment() {
+                store.dispatch({
+                    type: "counter/increment",
+                    payload: {
+                        changeBy: 3,
+                    },
+                });
+            }
+
+            // the function that you pass to store.subscribe() is called whenever the store state updates
+            store.subscribe(function () {
+                document.getElementById("value").innerHTML =
+                    store.getState().value;
+            });
+        </script>
+    </body>
+</html>

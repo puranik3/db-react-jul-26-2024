@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.25.2/babel.min.js"></script>
+
+        <script type="text/babel">
+            class Counter extends React.Component {
+                state = {
+                    value: this.props.initialValue,
+                    page: 1,
+                };
+
+                // constructor( props ) {
+                //      super( props );
+                //     // this.state = {
+
+                //     // }
+                // }
+
+                decrement = () => {
+                    this.setState({
+                        value: this.state.value - 1,
+                    });
+                };
+
+                increment = () => {
+                    this.setState({
+                        value: this.state.value + 1,
+                    });
+                };
+
+                render() {
+                    console.log("render");
+
+                    return (
+                        <div>
+                            <button onClick={this.decrement}>-</button>
+                            <span>{this.state.value}</span>
+                            <button onClick={this.increment}>+</button>
+                        </div>
+                    );
+                }
+
+                // this "lifecycle method" is called when the component shows up on the screen
+                componentDidMount() {
+                    console.log("componentDidMount");
+                }
+
+                componentDidUpdate(oldProps, oldState) {
+                    console.log("componentDidUpdate");
+                }
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<Counter initialValue={100} />);
+        </script>
+    </body>
+</html>
