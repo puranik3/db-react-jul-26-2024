@@ -4,7 +4,9 @@ interface IProps {
     workshopId: number;
 }
 
-const AddSession = (props: IProps) => {
+const AddSession = ({ workshopId }: IProps) => {
+    // const { workshopId } = useParams();
+
     return (
         <div>
             <h2>Add a new session</h2>
@@ -13,8 +15,8 @@ const AddSession = (props: IProps) => {
 
             <Form>
                 <Form.Group className="mb-3" controlId="sequenceId">
-                    <Form.Label>Sequence ID</Form.Label>{" "}
                     {/* for of label is htmlFor in JSX */}
+                    <Form.Label>Sequence ID</Form.Label>{" "}
                     <Form.Control type="text" placeholder="Sequence ID" />
                 </Form.Group>
 

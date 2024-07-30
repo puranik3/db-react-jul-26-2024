@@ -95,7 +95,10 @@ const WorkshopDetails = () => {
             <div className="mt-5">
                 <Routes>
                     <Route path="" element={<SessionsList />} />
-                    <Route path="add" element={<AddSession />} />
+                    <Route
+                        path="add"
+                        element={<AddSession workshopId={workshopIdNum} />}
+                    />
                 </Routes>
             </div>
         </div>
