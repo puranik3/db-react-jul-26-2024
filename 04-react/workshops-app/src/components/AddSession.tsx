@@ -16,6 +16,35 @@ const AddSession = ({ workshopId }: IProps) => {
     const [level, setLevel] = useState("");
     const [abstract, setAbstract] = useState("");
 
+    // error message states
+    const [sequenceIdError, setSequenceIdError] = useState("");
+
+    // form validation libraries - react-hook-form, Formik
+    function validateSequenceId() {
+        const s = sequenceId.trim();
+
+        if (s === "") {
+            setSequenceIdError("Sequence ID is required");
+            return false;
+        }
+
+        const patInteger = /^[1-9][0-9]*$/;
+
+        if (patInteger.test(s) === false) {
+            setSequenceIdError("Sequence ID must be a positive integer");
+            return false;
+        }
+
+        setSequenceIdError(""); // no error
+
+        return true;
+    }
+
+    function validate() {
+        // Usually you will validate ALL fields, and the form will be considered valid if ALL fields have valid values
+        return validateSequenceId();
+    }
+
     function addSession(event: FormEvent) {
         event.preventDefault(); // Hey browser! Don't do what you usually do - the browser tries to submit the form's detail to the "action" page
 
@@ -32,6 +61,10 @@ const AddSession = ({ workshopId }: IProps) => {
         };
 
         console.log(newSession); // user's input
+
+        if (validate()) {
+            alert("All good!");
+        }
     }
 
     return (
@@ -51,6 +84,9 @@ const AddSession = ({ workshopId }: IProps) => {
                         value={sequenceId}
                         onChange={(event) => setSequenceId(event.target.value)}
                     />
+                    <div className="text-danger" style={{ fontSize: "12px" }}>
+                        {sequenceIdError}
+                    </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="name">
