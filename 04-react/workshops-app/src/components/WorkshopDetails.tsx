@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Alert, Image, Spinner } from "react-bootstrap";
+import { NavLink, Route, Routes, useParams } from "react-router-dom";
+import { Alert, Button, Image, Spinner } from "react-bootstrap";
+
+import SessionsList from "./SessionsList";
 
 import { getWorkshopById } from "../services/workshops";
 import type { IWorkshop } from "../services/workshops";
+import AddSession from "./AddSession";
 
 const WorkshopDetails = () => {
     const [workshop, setWorkshop] = useState<IWorkshop | null>(null);
@@ -75,6 +78,26 @@ const WorkshopDetails = () => {
                     </div>
                 </>
             )}
+
+            <div className="mt-5">
+                <NavLink to="">
+                    <Button variant="primary" size="sm" className="me-2">
+                        Sessions list
+                    </Button>
+                </NavLink>
+                <NavLink to="add">
+                    <Button variant="primary" size="sm" className="me-2">
+                        Add a session
+                    </Button>
+                </NavLink>
+            </div>
+
+            <div className="mt-5">
+                <Routes>
+                    <Route path="" element={<SessionsList />} />
+                    <Route path="add" element={<AddSession />} />
+                </Routes>
+            </div>
         </div>
     );
 };
