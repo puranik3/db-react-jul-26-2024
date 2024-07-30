@@ -28,5 +28,10 @@ const getWorkshops = async (page: number) => {
     return response.data;
 };
 
-export { getWorkshops };
+const getWorkshopById = async (id: number) => {
+    const response = await axios.get<IWorkshop>(`/workshops/${id}`);
+    return response.data;
+};
+
+export { getWorkshops, getWorkshopById };
 export type { IWorkshop };
