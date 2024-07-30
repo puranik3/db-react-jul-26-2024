@@ -1,4 +1,4 @@
-import { FormEvent, useRef } from "react";
+import { FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 interface IProps {
@@ -7,14 +7,31 @@ interface IProps {
 
 const AddSession = ({ workshopId }: IProps) => {
     // const { workshopId } = useParams();
-    const sequenceIdRef = useRef<HTMLInputElement>(null); // { current: null }
+
+    // you create a state for every input
+    const [sequenceId, setSequenceId] = useState("10");
+    const [name, setName] = useState("");
+    const [speaker, setSpeaker] = useState("");
+    const [duration, setDuration] = useState("");
+    const [level, setLevel] = useState("");
+    const [abstract, setAbstract] = useState("");
 
     function addSession(event: FormEvent) {
         event.preventDefault(); // Hey browser! Don't do what you usually do - the browser tries to submit the form's detail to the "action" page
 
-        if (sequenceIdRef.current !== null) {
-            console.log(sequenceIdRef.current.value); // user's input
-        }
+        const newSession = {
+            // workshopId: workshopId
+            workshopId,
+            sequenceId: +sequenceId,
+            name,
+            speaker,
+            duration: +duration,
+            level,
+            abstract,
+            upvoteCount: 0,
+        };
+
+        console.log(newSession); // user's input
     }
 
     return (
@@ -27,32 +44,52 @@ const AddSession = ({ workshopId }: IProps) => {
                 <Form.Group className="mb-3" controlId="sequenceId">
                     {/* for of label is htmlFor in JSX */}
                     <Form.Label>Sequence ID</Form.Label>{" "}
-                    {/* { current: sequenceId_DOM_node */}
+                    {/* when we set the value (vs. defaultValue) prop to a state variable, the state controls the input */}
                     <Form.Control
                         type="text"
                         placeholder="Sequence ID"
-                        ref={sequenceIdRef}
+                        value={sequenceId}
+                        onChange={(event) => setSequenceId(event.target.value)}
                     />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="New session name" />
+                    <Form.Control
+                        type="text"
+                        placeholder="New session name"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="speaker">
                     <Form.Label>Speaker</Form.Label>
-                    <Form.Control type="text" placeholder="John Doe" />
+                    <Form.Control
+                        type="text"
+                        placeholder="John Doe"
+                        value={speaker}
+                        onChange={(event) => setSpeaker(event.target.value)}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="duration">
                     <Form.Label>Duration</Form.Label>
-                    <Form.Control type="text" placeholder="1.5" />
+                    <Form.Control
+                        type="text"
+                        placeholder="1.5"
+                        value={duration}
+                        onChange={(event) => setDuration(event.target.value)}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="level">
                     <Form.Label>Level</Form.Label>
-                    <Form.Select aria-label="Level of the session">
+                    <Form.Select
+                        aria-label="Level of the session"
+                        value={level}
+                        onChange={(event) => setLevel(event.target.value)}
+                    >
                         <option>Select a level</option>
                         <option>Basic</option>
                         <option>Intermediate</option>
@@ -62,7 +99,11 @@ const AddSession = ({ workshopId }: IProps) => {
 
                 <Form.Group className="mb-3" controlId="abstract">
                     <Form.Label>Abstract</Form.Label>
-                    <Form.Control as="textarea" />
+                    <Form.Control
+                        as="textarea"
+                        value={abstract}
+                        onChange={(event) => setAbstract(event.target.value)}
+                    />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">

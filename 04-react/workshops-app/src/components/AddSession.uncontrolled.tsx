@@ -1,3 +1,4 @@
+import { FormEvent, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 
 interface IProps {
@@ -6,6 +7,15 @@ interface IProps {
 
 const AddSession = ({ workshopId }: IProps) => {
     // const { workshopId } = useParams();
+    const sequenceIdRef = useRef<HTMLInputElement>(null); // { current: null }
+
+    function addSession(event: FormEvent) {
+        event.preventDefault(); // Hey browser! Don't do what you usually do - the browser tries to submit the form's detail to the "action" page
+
+        if (sequenceIdRef.current !== null) {
+            console.log(sequenceIdRef.current.value); // user's input
+        }
+    }
 
     return (
         <div>
@@ -13,11 +23,16 @@ const AddSession = ({ workshopId }: IProps) => {
 
             <hr />
 
-            <Form>
+            <Form onSubmit={addSession}>
                 <Form.Group className="mb-3" controlId="sequenceId">
                     {/* for of label is htmlFor in JSX */}
                     <Form.Label>Sequence ID</Form.Label>{" "}
-                    <Form.Control type="text" placeholder="Sequence ID" />
+                    {/* { current: sequenceId_DOM_node */}
+                    <Form.Control
+                        type="text"
+                        placeholder="Sequence ID"
+                        ref={sequenceIdRef}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="name">
