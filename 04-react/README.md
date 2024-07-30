@@ -994,6 +994,8 @@ const AddSession = (props: IProps) => {
         </div>
     );
 };
+
+export default AddSession;
 ```
 
 -   `src/components/WorkshopDetails.tsx`
